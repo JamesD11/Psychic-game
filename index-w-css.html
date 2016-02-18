@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Psychic game</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="reset.css">
+	
+</head>
+<body>
+	<h1>The Psychic Game</h1><img src="https://lh3.ggpht.com/AR1cJKRsiq7kLfD_USMuHRbui23t7uQa76wGq8mayAHR4TTKA594DzYYsI47hx2iYw=h900">
+	<h3>Guess what letter I'm thinking of...</h3>
+		<div id="game">
+			<p class="para"> Press a letter to guess</p>
+			
+			<p id="wins"> Wins: 0 </p>
+			<p id="loses"> Losses: 0</p>
+			<p class="para"> Guesses: 9</p>
+			<p class="para"> Letters already used: </p>
+		</div>
+	
+
+	<script type="text/javascript">
+	
+	
+	var wins=0;
+	var loses=0;
+	var guesses=9;
+	var alreadyGuessed=[];
+
+	function game(){	
+
+		alreadyGuessed.length= 0;
+		guesses=9;
+
+	
+	var randomLetter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
+
+	var secretLetter = randomLetter[Math.floor(Math.random()*randomLetter.length)];
+		console.log(secretLetter);
+
+		alert("Please select a letter!");
+		
+		document.onkeyup=function(event){ //when key pressed perform the following:
+			var userGuess= String.fromCharCode(event.keyCode).toLowerCase();//take key entered turn into letter & lowercase it
+			
+			alreadyGuessed.push(userGuess);// push the key pressed to alreadyGuessed array
+			console.log(alreadyGuessed);
+			
+
+			while(guesses > 0){
+			if(userGuess == secretLetter){
+				alert("You were right!");
+				wins++;
+				game();
+
+			}else if(userGuess != secretLetter){
+				guesses--;
+				console.log(guesses);
+				
+			}
+			if(guesses == 0){
+				alert("Sorry you lost");
+				loses++;
+				console.log(loses);
+				game();
+				}
+
+
+			var message = "<p class= 'para'> Press a letter to guess</p>" +
+           "<p id='wins'>Wins: " + wins + "</p>" +
+           "<p id= 'loses'>Loses: " + loses + "</p>" +
+           "<p class='para'>Guesses: "+ guesses + "</p>" +
+           "<p class='para'>Letters already used: "+ alreadyGuessed + "</p>";
+			document.querySelector("#game").innerHTML= message;
+
+			
+			
+			break;
+		}
+
+	}
+	
+}
+game(); 
+
+	</script>
+
+</body>
+</html>
