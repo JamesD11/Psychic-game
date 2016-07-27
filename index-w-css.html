@@ -35,7 +35,7 @@
 
 	var randomLetter = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
-	var secretLetter = randomLetter[Math.floor(Math.random()*randomLetter.length)];
+	var secretLetter = randomLetter[Math.floor(Math.random()*randomLetter.length)];//assigns a random letter
 		console.log(secretLetter);
 
 		alert("Please use your keyboard to select a letter!!");
@@ -72,8 +72,6 @@
            "<p class='para'>Guesses: "+ guesses + "</p>" +
            "<p class='para'>Letters already used: "+ alreadyGuessed + "</p>";
 			document.querySelector("#game").innerHTML= message;
-
-
 
 			break;
 		}
