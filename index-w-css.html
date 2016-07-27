@@ -38,7 +38,7 @@
 	var secretLetter = randomLetter[Math.floor(Math.random()*randomLetter.length)];
 		console.log(secretLetter);
 
-		alert("Please use your keyoard to select a letter!!");
+		alert("Please use your keyboard to select a letter!!");
 
 		document.onkeyup=function(event){ //when key pressed perform the following:
 			var userGuess= String.fromCharCode(event.keyCode).toLowerCase();//take key entered turn into letter & lowercase it
